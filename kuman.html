@@ -197,15 +197,22 @@
                 <span class="mr-1 md:mr-2">◉</span> KUMAN.WORLD <span class="ml-1 md:ml-2 blink">_</span>
             </div>
             
-            <!-- Desktop Navigation -->
-            <nav class="desktop-nav">
-                <ul class="flex space-x-2 md:space-x-4">
-                    <li><a href="#" class="neobrutal-border bg-white px-2 py-1 md:px-3 md:py-1 neobrutal-shadow font-semibold hover:bg-purple-200 transition retro-text text-xs md:text-sm">HOME</a></li>
-                    <li><a href="#" class="neobrutal-border bg-white px-2 py-1 md:px-3 md:py-1 neobrutal-shadow font-semibold hover:bg-blue-200 transition retro-text text-xs md:text-sm">PORTFOLIO</a></li>
-                    <li><a href="#" class="neobrutal-border bg-white px-2 py-1 md:px-3 md:py-1 neobrutal-shadow font-semibold hover:bg-green-200 transition retro-text text-xs md:text-sm">SERVICES</a></li>
-                    <li><a href="#" class="neobrutal-border bg-white px-2 py-1 md:px-3 md:py-1 neobrutal-shadow font-semibold hover:bg-pink-200 transition retro-text text-xs md:text-sm">CONTACT</a></li>
-                </ul>
-            </nav>
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <!-- Language Toggle -->
+                <button id="language-toggle" class="neobrutal-border bg-white px-2 py-1 md:px-3 md:py-1 neobrutal-shadow font-semibold hover:bg-gray-200 transition retro-text text-xs md:text-sm">
+                    EN
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <ul class="flex space-x-2 md:space-x-4">
+                        <li><a href="#" class="neobrutal-border bg-white px-2 py-1 md:px-3 md:py-1 neobrutal-shadow font-semibold hover:bg-purple-200 transition retro-text text-xs md:text-sm" data-key="nav-home">HOME</a></li>
+                        <li><a href="#" class="neobrutal-border bg-white px-2 py-1 md:px-3 md:py-1 neobrutal-shadow font-semibold hover:bg-blue-200 transition retro-text text-xs md:text-sm" data-key="nav-portfolio">PORTFOLIO</a></li>
+                        <li><a href="#" class="neobrutal-border bg-white px-2 py-1 md:px-3 md:py-1 neobrutal-shadow font-semibold hover:bg-green-200 transition retro-text text-xs md:text-sm" data-key="nav-services">SERVICES</a></li>
+                        <li><a href="#" class="neobrutal-border bg-white px-2 py-1 md:px-3 md:py-1 neobrutal-shadow font-semibold hover:bg-pink-200 transition retro-text text-xs md:text-sm" data-key="nav-contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </div>
             
             <!-- Mobile Hamburger Menu -->
             <div class="hamburger" id="hamburger">
@@ -218,10 +225,15 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu mt-4" id="mobileMenu">
             <ul class="space-y-2">
-                <li><a href="#" class="block neobrutal-border bg-white px-3 py-2 neobrutal-shadow font-semibold hover:bg-purple-200 transition retro-text text-sm w-full text-center">HOME</a></li>
-                <li><a href="#" class="block neobrutal-border bg-white px-3 py-2 neobrutal-shadow font-semibold hover:bg-blue-200 transition retro-text text-sm w-full text-center">PORTFOLIO</a></li>
-                <li><a href="#" class="block neobrutal-border bg-white px-3 py-2 neobrutal-shadow font-semibold hover:bg-green-200 transition retro-text text-sm w-full text-center">SERVICES</a></li>
-                <li><a href="#" class="block neobrutal-border bg-white px-3 py-2 neobrutal-shadow font-semibold hover:bg-pink-200 transition retro-text text-sm w-full text-center">CONTACT</a></li>
+                <li><a href="#" class="block neobrutal-border bg-white px-3 py-2 neobrutal-shadow font-semibold hover:bg-purple-200 transition retro-text text-sm w-full text-center" data-key="nav-home">HOME</a></li>
+                <li><a href="#" class="block neobrutal-border bg-white px-3 py-2 neobrutal-shadow font-semibold hover:bg-blue-200 transition retro-text text-sm w-full text-center" data-key="nav-portfolio">PORTFOLIO</a></li>
+                <li><a href="#" class="block neobrutal-border bg-white px-3 py-2 neobrutal-shadow font-semibold hover:bg-green-200 transition retro-text text-sm w-full text-center" data-key="nav-services">SERVICES</a></li>
+                <li><a href="#" class="block neobrutal-border bg-white px-3 py-2 neobrutal-shadow font-semibold hover:bg-pink-200 transition retro-text text-sm w-full text-center" data-key="nav-contact">CONTACT</a></li>
+                <li class="mt-4">
+                    <button id="mobile-language-toggle" class="block neobrutal-border bg-white px-3 py-2 neobrutal-shadow font-semibold hover:bg-gray-200 transition retro-text text-sm w-full text-center">
+                        EN
+                    </button>
+                </li>
             </ul>
         </div>
     </header>
@@ -236,13 +248,13 @@
                         <span class="text-purple-600">KUMAN</span><br>
                         <span class="text-pink-500">WORLD</span>
                     </h1>
-                    <p class="text-base md:text-xl mb-6 md:mb-8 retro-text text-xs md:text-base leading-relaxed">
+                    <p class="text-base md:text-xl mb-6 md:mb-8 retro-text text-xs md:text-base leading-relaxed" data-key="hero-description">
                         <span class="font-bold">BUKAN DUNIA BAKTERI</span>, TAPI DI SINI KAMU BISA PUNYA WEBSITE SENDIRI<br>
                         <span class="mt-2 block text-[10px] md:text-[8px]">~anjay kelas kink</span>
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-                        <a href="#" class="neobrutal-border-thick bg-green-300 px-4 py-2 md:px-6 md:py-3 neobrutal-shadow font-bold text-base md:text-lg hover:bg-green-400 transition retro-text text-center">LIHAT PORTFOLIO</a>
-                        <a href="#" class="neobrutal-border-thick bg-yellow-300 px-4 py-2 md:px-6 md:py-3 neobrutal-shadow font-bold text-base md:text-lg hover:bg-yellow-400 transition retro-text text-center">HUBUNGI SAYA</a>
+                        <a href="#" class="neobrutal-border-thick bg-green-300 px-4 py-2 md:px-6 md:py-3 neobrutal-shadow font-bold text-base md:text-lg hover:bg-green-400 transition retro-text text-center" data-key="hero-portfolio">LIHAT PORTFOLIO</a>
+                        <a href="#" class="neobrutal-border-thick bg-yellow-300 px-4 py-2 md:px-6 md:py-3 neobrutal-shadow font-bold text-base md:text-lg hover:bg-yellow-400 transition retro-text text-center" data-key="hero-contact">HUBUNGI SAYA</a>
                     </div>
                 </div>
                 <div class="flex justify-center mt-6 md:mt-0">
@@ -250,7 +262,7 @@
                         <div class="text-center">
                         <!-- Pika GIF -->
                         <img src="public/aset/pika.gif" alt="Pika GIF" class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-2 md:mb-4 object-contain" />
-                        <p class="mt-2 md:mt-4 retro-text text-black-500 text-xs md:text-base">[ OTEWE NYARI CUAN CIK ]</p>
+                        <p class="mt-2 md:mt-4 retro-text text-black-500 text-xs md:text-base" data-key="hero-image-text">[ OTEWE NYARI CUAN CIK ]</p>
                         </div>
                     </div>
                 </div>
@@ -261,7 +273,7 @@
 
     <!-- Services Section -->
     <section class="container mx-auto px-3 mb-10 md:px-4 md:mb-16">
-        <h2 class="text-2xl md:text-4xl font-black mb-6 md:mb-8 text-center neobrutal-border bg-white p-3 md:p-4 neobrutal-shadow inline-block mx-auto block w-fit retro-title">LAYANANKU</h2>
+        <h2 class="text-2xl md:text-4xl font-black mb-6 md:mb-8 text-center neobrutal-border bg-white p-3 md:p-4 neobrutal-shadow inline-block mx-auto block w-fit retro-title" data-key="services-title">LAYANANKU</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div class="neobrutal-border bg-purple-100 p-4 md:p-6 neobrutal-shadow crt-effect">
@@ -269,10 +281,10 @@
                     <div class="w-8 h-8 md:w-12 md:h-12 bg-purple-300 neobrutal-border flex items-center justify-center mr-3 md:mr-4">
                         <span class="retro-text text-xs md:text-base">◉</span>
                     </div>
-                    <h3 class="text-lg md:text-2xl font-bold retro-text">WENGDEV</h3>
+                    <h3 class="text-lg md:text-2xl font-bold retro-text" data-key="service1-title">WENGDEV</h3>
                 </div>
-                <p class="mb-3 md:mb-4 text-sm md:text-base">GWEH BUATKAN WEBSITE YANG SESUAI DENGAN KEBUTUHAN DAN KEPRIBADIAN ANDA.</p>
-                <a href="#" class="neobrutal-border bg-white px-3 py-1 md:px-4 md:py-2 neobrutal-shadow font-semibold inline-block retro-text text-xs md:text-sm">SELENGKAPNYA</a>
+                <p class="mb-3 md:mb-4 text-sm md:text-base" data-key="service1-desc">GWEH BUATKAN WEBSITE YANG SESUAI DENGAN KEBUTUHAN DAN KEPRIBADIAN ANDA.</p>
+                <a href="#" class="neobrutal-border bg-white px-3 py-1 md:px-4 md:py-2 neobrutal-shadow font-semibold inline-block retro-text text-xs md:text-sm" data-key="service-more">SELENGKAPNYA</a>
             </div>
             
             <div class="neobrutal-border bg-green-100 p-4 md:p-6 neobrutal-shadow crt-effect">
@@ -280,10 +292,10 @@
                     <div class="w-8 h-8 md:w-12 md:h-12 bg-green-300 neobrutal-border flex items-center justify-center mr-3 md:mr-4">
                         <span class="retro-text text-xs md:text-base">◼</span>
                     </div>
-                    <h3 class="text-lg md:text-2xl font-bold retro-text">DESIGN</h3>
+                    <h3 class="text-lg md:text-2xl font-bold retro-text" data-key="service2-title">DESIGN</h3>
                 </div>
-                <p class="mb-3 md:mb-4 text-sm md:text-base">GWE BUATIN SEMUA DESAIN KECUALI BUAT PROMO JUDOL</p>
-                <a href="#" class="neobrutal-border bg-white px-3 py-1 md:px-4 md:py-2 neobrutal-shadow font-semibold inline-block retro-text text-xs md:text-sm">SELENGKAPNYA</a>
+                <p class="mb-3 md:mb-4 text-sm md:text-base" data-key="service2-desc">GWE BUATIN SEMUA DESAIN KECUALI BUAT PROMO JUDOL</p>
+                <a href="#" class="neobrutal-border bg-white px-3 py-1 md:px-4 md:py-2 neobrutal-shadow font-semibold inline-block retro-text text-xs md:text-sm" data-key="service-more">SELENGKAPNYA</a>
             </div>
             
             <div class="neobrutal-border bg-yellow-100 p-4 md:p-6 neobrutal-shadow crt-effect">
@@ -291,17 +303,17 @@
                     <div class="w-8 h-8 md:w-12 md:h-12 bg-yellow-300 neobrutal-border flex items-center justify-center mr-3 md:mr-4">
                         <span class="retro-text text-xs md:text-base">★</span>
                     </div>
-                    <h3 class="text-lg md:text-2xl font-bold retro-text">BRANDING</h3>
+                    <h3 class="text-lg md:text-2xl font-bold retro-text" data-key="service3-title">BRANDING</h3>
                 </div>
-                <p class="mb-3 md:mb-4 text-sm md:text-base">BANTUIN BANGUN BRANDING BIAR GA KRISIS IDENTITAS</p>
-                <a href="#" class="neobrutal-border bg-white px-3 py-1 md:px-4 md:py-2 neobrutal-shadow font-semibold inline-block retro-text text-xs md:text-sm">SELENGKAPNYA</a>
+                <p class="mb-3 md:mb-4 text-sm md:text-base" data-key="service3-desc">BANTUIN BANGUN BRANDING BIAR GA KRISIS IDENTITAS</p>
+                <a href="#" class="neobrutal-border bg-white px-3 py-1 md:px-4 md:py-2 neobrutal-shadow font-semibold inline-block retro-text text-xs md:text-sm" data-key="service-more">SELENGKAPNYA</a>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Preview -->
     <section class="container mx-auto px-3 mb-10 md:px-4 md:mb-16">
-        <h2 class="text-2xl md:text-4xl font-black mb-6 md:mb-8 text-center neobrutal-border bg-white p-3 md:p-4 neobrutal-shadow inline-block mx-auto block w-fit retro-title">PROJECT TERBARU</h2>
+        <h2 class="text-2xl md:text-4xl font-black mb-6 md:mb-8 text-center neobrutal-border bg-white p-3 md:p-4 neobrutal-shadow inline-block mx-auto block w-fit retro-title" data-key="portfolio-title">PROJECT TERBARU</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <!-- RAMEN -->
             <div class="neobrutal-border bg-pink-100 p-3 md:p-4 neobrutal-shadow crt-effect">
@@ -309,8 +321,8 @@
                 <img src="public/aset/ramen.png" alt="Ramen Project" class="object-contain w-full h-full">
                 </div>
                 <h3 class="text-lg md:text-2xl font-bold mb-1 md:mb-2 retro-text">LANDING PAGE RAMEN</h3>
-                <p class="mb-3 md:mb-4 text-sm md:text-base">I MAKE THIS BTW</p>
-                <a href="projek/ramen.html" class="neobrutal-border bg-white px-3 py-1 md:px-4 md:py-2 neobrutal-shadow font-semibold inline-block retro-text text-xs md:text-sm">LIHAT DETAIL</a>
+                <p class="mb-3 md:mb-4 text-sm md:text-base" data-key="project1-desc">I MAKE THIS BTW</p>
+                <a href="projek/ramen.html" class="neobrutal-border bg-white px-3 py-1 md:px-4 md:py-2 neobrutal-shadow font-semibold inline-block retro-text text-xs md:text-sm" data-key="project-detail">LIHAT DETAIL</a>
             </div>
 
             <!-- CAFE -->
@@ -319,8 +331,8 @@
                 <img src="public/aset/cafe.png" alt="Cafe Project" class="object-contain w-full h-full">
                 </div>
                 <h3 class="text-lg md:text-2xl font-bold mb-1 md:mb-2 retro-text">CAFE PAGE</h3>
-                <p class="mb-3 md:mb-4 text-sm md:text-base">THIS 2</p>
-                <a href="projek/cafe.html" class="neobrutal-border bg-white px-3 py-1 md:px-4 md:py-2 neobrutal-shadow font-semibold inline-block retro-text text-xs md:text-sm">LIHAT DETAIL</a>
+                <p class="mb-3 md:mb-4 text-sm md:text-base" data-key="project2-desc">THIS 2</p>
+                <a href="projek/cafe.html" class="neobrutal-border bg-white px-3 py-1 md:px-4 md:py-2 neobrutal-shadow font-semibold inline-block retro-text text-xs md:text-sm" data-key="project-detail">LIHAT DETAIL</a>
             </div>
         </div>
 
@@ -328,7 +340,7 @@
 
     <!-- Testimonials -->
     <section class="container mx-auto px-3 mb-10 md:px-4 md:mb-16">
-        <h2 class="text-2xl md:text-4xl font-black mb-6 md:mb-8 text-center neobrutal-border bg-white p-3 md:p-4 neobrutal-shadow inline-block mx-auto block w-fit retro-title">TESTIMONI</h2>
+        <h2 class="text-2xl md:text-4xl font-black mb-6 md:mb-8 text-center neobrutal-border bg-white p-3 md:p-4 neobrutal-shadow inline-block mx-auto block w-fit retro-title" data-key="testimonials-title">TESTIMONI</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             <div class="neobrutal-border bg-yellow-100 p-4 md:p-6 neobrutal-shadow crt-effect">
@@ -338,10 +350,10 @@
                     </div>
                     <div>
                         <h3 class="text-lg md:text-xl font-bold retro-text">ANDI KAN WAKTU BISA KUPUTAR KEMBALI</h3>
-                        <p class="text-xs md:text-sm">PEMILIK BISNIS</p>
+                        <p class="text-xs md:text-sm" data-key="testimonial1-job">PEMILIK BISNIS</p>
                     </div>
                 </div>
-                <p class="italic text-sm md:text-base">"WEBSITE YANG DIBUAT SANGAT UNIK DAN SESUAI DENGAN KEPRIBADIAN BISNIS SAYA. TERIMA KASIH KUMAN!"</p>
+                <p class="italic text-sm md:text-base" data-key="testimonial1-text">"WEBSITE YANG DIBUAT SANGAT UNIK DAN SESUAI DENGAN KEPRIBADIAN BISNIS SAYA. TERIMA KASIH KUMAN!"</p>
             </div>
             
             <div class="neobrutal-border bg-green-100 p-4 md:p-6 neobrutal-shadow crt-effect">
@@ -351,10 +363,10 @@
                     </div>
                     <div>
                         <h3 class="text-lg md:text-xl font-bold retro-text">SARI ROWTEA</h3>
-                        <p class="text-xs md:text-sm">FREELANCER</p>
+                        <p class="text-xs md:text-sm" data-key="testimonial2-job">FREELANCER</p>
                     </div>
                 </div>
-                <p class="italic text-sm md:text-base">"PORTFOLIO SAYA SEKARANG TERLIHAT SANGAT PROFESIONAL DAN MENARIK, AWWHHH SUKAA DEHHHH"</p>
+                <p class="italic text-sm md:text-base" data-key="testimonial2-text">"PORTFOLIO SAYA SEKARANG TERLIHAT SANGAT PROFESIONAL DAN MENARIK, AWWHHH SUKAA DEHHHH"</p>
             </div>
             
             <div class="neobrutal-border bg-purple-100 p-4 md:p-6 neobrutal-shadow crt-effect">
@@ -364,13 +376,13 @@
                     </div>
                     <div>
                         <h3 class="text-lg md:text-xl font-bold retro-text">BUDIONO SIREGAR</h3>
-                        <p class="text-xs md:text-sm">MUSISI</p>
+                        <p class="text-xs md:text-sm" data-key="testimonial3-job">MUSISI</p>
                     </div>
                 </div>
-                <p class="italic text-sm md:text-base">"DESAIN WEBSITE SAYA SANGAT COCOK DENGAN GAYA MUSIK YANG SAYA BAWA. SANGAT RETRO DAN KEREN!"</p>
+                <p class="italic text-sm md:text-base" data-key="testimonial3-text">"DESAIN WEBSITE SAYA SANGAT COCOK DENGAN GAYA MUSIK YANG SAYA BAWA. SANGAT RETRO DAN KEREN!"</p>
             </div>
             <p class="text-base md:text-xl mb-6 md:mb-8 retro-text text-xs md:text-base leading-relaxed">
-                <span class="mt-2 block text-[10px] md:text-[8px]">ini aku ngarang bang tapi ada yang aseli kok wkkwkwk</span>
+                <span class="mt-2 block text-[10px] md:text-[8px]" data-key="testimonials-note">ini aku ngarang bang tapi ada yang aseli kok wkkwkwk</span>
             </p>
         </div>
     </section>
@@ -378,9 +390,9 @@
     <!-- CTA Section -->
     <section class="container mx-auto px-3 mb-10 md:px-4 md:mb-16">
         <div class="neobrutal-border-thick bg-purple-200 p-4 md:p-8 text-center neobrutal-shadow crt-effect">
-            <h2 class="text-2xl md:text-4xl font-black mb-3 md:mb-4 retro-title">SIAP PUNYA WEBSITE IMPIAN?</h2>
-            <p class="text-base md:text-xl mb-4 md:mb-6 max-w-2xl mx-auto retro-text text-sm md:text-base">DI KUMAN WORLD, KAMI PERCAYA SETIAP ORANG BERHAK PUNYA WEBSITE YANG MENCERMINKAN KEPRIBADIAN MEREKA.</p>
-            <a href="#" class="neobrutal-border-thick bg-white px-4 py-2 md:px-8 md:py-4 neobrutal-shadow font-bold text-lg md:text-xl inline-block hover:bg-pink-100 transition retro-text">MULAI SEKARANG</a>
+            <h2 class="text-2xl md:text-4xl font-black mb-3 md:mb-4 retro-title" data-key="cta-title">SIAP PUNYA WEBSITE IMPIAN?</h2>
+            <p class="text-base md:text-xl mb-4 md:mb-6 max-w-2xl mx-auto retro-text text-sm md:text-base" data-key="cta-desc">DI KUMAN WORLD, KAMI PERCAYA SETIAP ORANG BERHAK PUNYA WEBSITE YANG MENCERMINKAN KEPRIBADIAN MEREKA.</p>
+            <a href="wa.me/+6285723470609" class="neobrutal-border-thick bg-white px-4 py-2 md:px-8 md:py-4 neobrutal-shadow font-bold text-lg md:text-xl inline-block hover:bg-pink-100 transition retro-text" data-key="cta-button">ORDER SEKARANG</a>
         </div>
     </section>
 
@@ -390,30 +402,27 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 <div>
                     <h3 class="text-lg md:text-2xl font-bold mb-3 md:mb-4 retro-text">KUMAN.WORLD</h3>
-                    <p class="retro-text text-xs md:text-base">TEMPAT DI MANA KAMU BISA PUNYA WEBSITE SENDIRI YANG UNIK DAN PERSONAL.</p>
+                    <p class="retro-text text-xs md:text-base" data-key="footer-desc">TEMPAT DI MANA KAMU BISA PUNYA WEBSITE SENDIRI YANG UNIK DAN PERSONAL.</p>
                 </div>
                 
                 <div>
-                    <h3 class="text-base md:text-xl font-bold mb-3 md:mb-4 retro-text">TAUTAN CEPAT</h3>
+                    <h3 class="text-base md:text-xl font-bold mb-3 md:mb-4 retro-text" data-key="footer-links-title">TAUTAN CEPAT</h3>
                     <ul class="space-y-1 md:space-y-2">
-                        <li><a href="#" class="hover:underline retro-text text-xs md:text-base">HOME</a></li>
-                        <li><a href="#" class="hover:underline retro-text text-xs md:text-base">PORTFOLIO</a></li>
-                        <li><a href="#" class="hover:underline retro-text text-xs md:text-base">LAYANAN</a></li>
-                        <li><a href="#" class="hover:underline retro-text text-xs md:text-base">KONTAK</a></li>
+                        <li><a href="#" class="hover:underline retro-text text-xs md:text-base" data-key="nav-home">HOME</a></li>
+                        <li><a href="#" class="hover:underline retro-text text-xs md:text-base" data-key="nav-portfolio">PORTFOLIO</a></li>
+                        <li><a href="#" class="hover:underline retro-text text-xs md:text-base" data-key="nav-services">LAYANAN</a></li>
+                        <li><a href="#" class="hover:underline retro-text text-xs md:text-base" data-key="nav-contact">KONTAK</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h3 class="text-base md:text-xl font-bold mb-3 md:mb-4 retro-text">HUBUNGI AKU</h3>
+                    <h3 class="text-base md:text-xl font-bold mb-3 md:mb-4 retro-text" data-key="footer-contact-title">HUBUNGI AKU</h3>
                     <p class="retro-text text-xs md:text-base">EMAIL: maakunn470@mail.com</p>
-                    <p class="retro-text text-xs md:text-base">TELEPON: +62 812 3456 7890</p>
+                    <p class="retro-text text-xs md:text-base">TELEPON: +6285723470609</p>
                     <div class="flex space-x-2 md:space-x-4 mt-2 md:mt-4">
-                        <a href="#" class="neobrutal-border bg-white w-8 h-8 md:w-10 md:h-10 flex items-center justify-center neobrutal-shadow retro-text text-xs">IG</a>
+                        <a href="https://www.instagram.com/manzeeebbbb/" class="neobrutal-border bg-white w-8 h-8 md:w-10 md:h-10 flex items-center justify-center neobrutal-shadow retro-text text-xs">IG</a>
                         <a href="https://github.com/kumanzeeb/" class="neobrutal-border bg-white w-8 h-8 md:w-10 md:h-10 flex items-center justify-center neobrutal-shadow retro-text text-xs">GH</a>
-                        <a href="#" class="neobrutal-border bg-white w-8 h-8 md:w-10 md:h-10 flex items-center justify-center neobrutal-shadow retro-text text-xs">FB</a>
-                    </div>            
-                    <div class="border-t-2 border-black mt-4 md:mt-8 pt-3 md:pt-4 text-center">
-                        <p class="retro-text text-xs md:text-base">&copy; 2023 KUMAN WORLD. ALL RIGHTS RESERVED.</p>
+                        <a href="https://www.facebook.com/eruk.rukmana.39" class="neobrutal-border bg-white w-8 h-8 md:w-10 md:h-10 flex items-center justify-center neobrutal-shadow retro-text text-xs">FB</a>
                     </div>
                 </div>
             </div>
@@ -427,13 +436,12 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Mobile menu functionality
         document.getElementById('hamburger').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -443,11 +451,165 @@
             }
         });
 
+        // Set current year
         (() => {
             const y = new Date().getFullYear();
             const el = document.getElementById('year-inline');
             if(el) el.textContent = y;
         })();
+
+        // Language toggle functionality
+        const languageToggle = document.getElementById('language-toggle');
+        const mobileLanguageToggle = document.getElementById('mobile-language-toggle');
+        
+        // Language data
+        const translations = {
+            id: {
+                // Navigation
+                'nav-home': 'HOME',
+                'nav-portfolio': 'PORTFOLIO',
+                'nav-services': 'SERVICES',
+                'nav-contact': 'CONTACT',
+                
+                // Hero section
+                'hero-description': '<span class="font-bold">BUKAN DUNIA BAKTERI</span>, TAPI DI SINI KAMU BISA PUNYA WEBSITE SENDIRI<br><span class="mt-2 block text-[10px] md:text-[8px]">~anjay kelas kink</span>',
+                'hero-portfolio': 'LIHAT PORTFOLIO',
+                'hero-contact': 'HUBUNGI SAYA',
+                'hero-image-text': '[ OTEWE NYARI CUAN CIK ]',
+                
+                // Services section
+                'services-title': 'LAYANANKU',
+                'service1-title': 'WENGDEV',
+                'service1-desc': 'GWEH BUATKAN WEBSITE YANG SESUAI DENGAN KEBUTUHAN DAN KEPRIBADIAN ANDA.',
+                'service2-title': 'DESIGN',
+                'service2-desc': 'GWE BUATIN SEMUA DESAIN KECUALI BUAT PROMO JUDOL',
+                'service3-title': 'BRANDING',
+                'service3-desc': 'BANTUIN BANGUN BRANDING BIAR GA KRISIS IDENTITAS',
+                'service-more': 'SELENGKAPNYA',
+                
+                // Portfolio section
+                'portfolio-title': 'PROJECT TERBARU',
+                'project1-desc': 'I MAKE THIS BTW',
+                'project2-desc': 'THIS 2',
+                'project-detail': 'LIHAT DETAIL',
+                
+                // Testimonials
+                'testimonials-title': 'TESTIMONI',
+                'testimonial1-job': 'PEMILIK BISNIS',
+                'testimonial1-text': '"WEBSITE YANG DIBUAT SANGAT UNIK DAN SESUAI DENGAN KEPRIBADIAN BISNIS SAYA. TERIMA KASIH KUMAN!"',
+                'testimonial2-job': 'FREELANCER',
+                'testimonial2-text': '"PORTFOLIO SAYA SEKARANG TERLIHAT SANGAT PROFESIONAL DAN MENARIK, AWWHHH SUKAA DEHHHH"',
+                'testimonial3-job': 'MUSISI',
+                'testimonial3-text': '"DESAIN WEBSITE SAYA SANGAT COCOK DENGAN GAYA MUSIK YANG SAYA BAWA. SANGAT RETRO DAN KEREN!"',
+                'testimonials-note': 'ini aku ngarang bang tapi ada yang aseli kok wkkwkwk',
+                
+                // CTA section
+                'cta-title': 'SIAP PUNYA WEBSITE IMPIAN?',
+                'cta-desc': 'DI KUMAN WORLD, KAMI PERCAYA SETIAP ORANG BERHAK PUNYA WEBSITE YANG MENCERMINKAN KEPRIBADIAN MEREKA.',
+                'cta-button': 'ORDER SEKARANG',
+                
+                // Footer
+                'footer-desc': 'TEMPAT DI MANA KAMU BISA PUNYA WEBSITE SENDIRI YANG UNIK DAN PERSONAL.',
+                'footer-links-title': 'TAUTAN CEPAT',
+                'footer-contact-title': 'HUBUNGI AKU'
+            },
+            en: {
+                // Navigation
+                'nav-home': 'HOME',
+                'nav-portfolio': 'PORTFOLIO',
+                'nav-services': 'SERVICES',
+                'nav-contact': 'CONTACT',
+                
+                // Hero section
+                'hero-description': '<span class="font-bold">NOT A BACTERIA WORLD</span>, BUT HERE YOU CAN HAVE YOUR OWN WEBSITE<br><span class="mt-2 block text-[10px] md:text-[8px]">~anjay kelas kink</span>',
+                'hero-portfolio': 'VIEW PORTFOLIO',
+                'hero-contact': 'CONTACT ME',
+                'hero-image-text': '[ I\'M LOOKING FOR MONEY, SIS ]',
+                
+                // Services section
+                'services-title': 'MY SERVICES',
+                'service1-title': 'WENGDEV',
+                'service1-desc': 'I CREATE WEBSITES THAT FIT YOUR NEEDS AND PERSONALITY.',
+                'service2-title': 'DESIGN',
+                'service2-desc': 'I CREATE ALL DESIGNS EXCEPT FOR GAMBLING PROMOTIONS',
+                'service3-title': 'BRANDING',
+                'service3-desc': 'HELP BUILD BRANDING TO AVOID IDENTITY CRISIS',
+                'service-more': 'MORE INFO',
+                
+                // Portfolio section
+                'portfolio-title': 'LATEST PROJECTS',
+                'project1-desc': 'I MAKE THIS BTW',
+                'project2-desc': 'THIS 2',
+                'project-detail': 'VIEW DETAILS',
+                
+                // Testimonials
+                'testimonials-title': 'TESTIMONIALS',
+                'testimonial1-job': 'BUSINESS OWNER',
+                'testimonial1-text': '"THE WEBSITE CREATED IS VERY UNIQUE AND FITS MY BUSINESS PERSONALITY. THANK YOU KUMAN!"',
+                'testimonial2-job': 'FREELANCER',
+                'testimonial2-text': '"MY PORTFOLIO NOW LOOKS VERY PROFESSIONAL AND ATTRACTIVE, AWWHHH I LOVE IT"',
+                'testimonial3-job': 'MUSICIAN',
+                'testimonial3-text': '"THE WEBSITE DESIGN IS VERY SUITABLE FOR THE MUSIC STYLE I BRING. VERY RETRO AND COOL!"',
+                'testimonials-note': 'I made this up but there are real ones too wkkwkwk',
+                
+                // CTA section
+                'cta-title': 'READY TO HAVE YOUR DREAM WEBSITE?',
+                'cta-desc': 'AT KUMAN WORLD, WE BELIEVE EVERYONE DESERVES A WEBSITE THAT REFLECTS THEIR PERSONALITY.',
+                'cta-button': 'ORDER NOW',
+                
+                // Footer
+                'footer-desc': 'A PLACE WHERE YOU CAN HAVE YOUR OWN UNIQUE AND PERSONAL WEBSITE.',
+                'footer-links-title': 'QUICK LINKS',
+                'footer-contact-title': 'CONTACT ME'
+            }
+        };
+
+        let currentLang = 'id'; // Default language
+
+        // Function to update text content based on language
+        function updateLanguage(lang) {
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'A' || element.tagName === 'BUTTON' || element.tagName === 'SPAN') {
+                        element.textContent = translations[lang][key];
+                    } else {
+                        element.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update toggle button text
+            const toggleText = lang === 'id' ? 'EN' : 'ID';
+            languageToggle.textContent = toggleText;
+            mobileLanguageToggle.textContent = toggleText;
+            
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+            
+            // Save language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Toggle language function
+        function toggleLanguage() {
+            currentLang = currentLang === 'id' ? 'en' : 'id';
+            updateLanguage(currentLang);
+        }
+
+        // Event listeners for language toggle
+        languageToggle.addEventListener('click', toggleLanguage);
+        mobileLanguageToggle.addEventListener('click', toggleLanguage);
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                currentLang = savedLang;
+            }
+            updateLanguage(currentLang);
+        });
     </script>
 </body>
 </html>
