@@ -4,9 +4,5 @@
   ],
   "redirects": [
     { "source": "/index.html", "destination": "/", "permanent": true }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/404.html" }
   ]
 }
