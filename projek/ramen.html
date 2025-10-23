@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAGANG RAMEN - The Art of the Slurp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dosis:wght@400;600&family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #111113;
+            --cream: #F5F1E8;
+            --gold: #C4A484;
+            --red: #B13A31;
+            --brown: #7A5C48;
+            --broth: #D9B382;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 1.5px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(17, 17, 19, 0.95);
+            padding: 1rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(196, 164, 132, 0.2);
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            border: 2px solid var(--cream);
+            color: var(--cream);
+        }
+
+        .secondary-button:hover {
+            background-color: var(--cream);
+            color: var(--black);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section with New Wave Animation */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(17, 17, 19, 0.7), rgba(17, 17, 19, 0.8)), 
+                        url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: -1px -1px 1px black;
+            font-family: 'Dosis', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        /* Fixed Wave Animation - Using SVG inline */
+        .wave {
+            position: absolute;
+            bottom: -10px;
+            left: -120px;
+            width: 200%;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .wave1 {
+            animation: animate 25s linear infinite;
+            opacity: 1;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113 0 1200 45V0z" fill="%23F5F1E8"/></svg>');
+            transform: rotate(180deg);
+        }
+
+        .wave2 {
+            animation: animate2 20s linear infinite;
+            opacity: 0.7;
+            animation-delay: -5s;
+            bottom: 7px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113 0 1200 45V0z" fill="%23F5F1E8"/></svg>');
+            transform: rotate(180deg);
+        }   
+
+        .wave3 {
+            animation: animate 15s linear infinite;
+            opacity: 0.4;
+            animation-delay: -2s;
+            bottom: 10px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113 0 1200 45V0z" fill="%23F5F1E8"/></svg>');
+            transform: rotate(180deg);
+        }
+
+        .wave4 {
+            animation: animate2 10s linear infinite;
+            opacity: 0.2;
+            animation-delay: -10s;
+            bottom: 13px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113 0 1200 45V0z" fill="%23F5F1E8"/></svg>');
+            transform: rotate(180deg);
+        }
+
+        @keyframes animate {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: 1000px;
+            }
+        }
+
+        @keyframes animate2 {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: -1000px;
+            }
+        }
+
+        /* The Craft Section */
+        .craft {
+            padding: 6rem 0;
+            background-color: var(--cream);
+            color: var(--black);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            color: var(--black);
+        }
+
+        .craft-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .craft-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .craft-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .craft-icon {
+            font-size: 3.5rem;
+            color: var(--brown);
+            margin-bottom: 1.5rem;
+        }
+
+        .craft-item h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 6rem 0;
+        }
+
+        .menu-section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            color: var(--cream);
+        }
+
+        .menu-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background-color: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background-color: rgba(245, 241, 232, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-item-image {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-item:hover .menu-item-image {
+            transform: scale(1.1);
+        }
+
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item-title {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .menu-item-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .menu-item-desc {
+            margin-bottom: 1rem;
+            color: rgba(245, 241, 232, 0.8);
+        }
+
+        .menu-item-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background-color: var(--brown);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag.spicy {
+            background-color: var(--red);
+        }
+
+        .menu-item-button {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Story Section */
+        .story {
+            padding: 6rem 0;
+            background-color: var(--cream);
+            color: var(--black);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease;
+        }
+
+        .story-image:hover {
+            transform: scale(1.03);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .story-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.3rem;
+            border-left: 4px solid var(--gold);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        /* Location Section */
+        .location {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .map-overlay {
+            position: relative;
+            width: 100%;
+            height: 400px; /* biar full map-nya keliatan lega */
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
+
+        .map-overlay iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            z-index: 1;
+            pointer-events: auto; /* biar bisa digeser zoom */
+        }
+
+        .map-content {
+            position: absolute;
+            top: 50%; /* dari atas tengah */
+            left: 50%; /* dari kiri tengah */
+            transform: translate(-50%, -50%); /* benerin posisi biar pas di tengah */
+            z-index: 2;
+            text-align: center;
+            color: var(--cream);
+            background: rgba(0, 0, 0, 0.25); /* semi transparan aja */
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            opacity: 0.85; /* opacity turun, bukan blur */
+            transition: opacity 0.3s ease;
+        }
+
+        .map-content:hover {
+            opacity: 1; /* biar pas di-hover makin jelas */
+        }
+
+        .map-content i {
+            color: #ffff;
+        }
+
+
+        .map-overlay:hover iframe {
+            transform: scale(1.03);
+            transition: transform 2s ease;
+        }
+
+
+        .location-info {
+            position: relative;
+            padding-bottom: 120px; /* Space for waves */
+        }
+
+        .location-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-right: 1rem;
+            width: 30px;
+        }
+
+        .status-open {
+            color: #4CAF50;
+            font-weight: 700;
+        }
+
+        .status-closed {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* Fixed Wave Animation for Location Section */
+
+        .location-wave {
+            position: absolute;
+            bottom: -20px;
+            left: -120px;
+            width: 200%;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .location-wave1 {
+            animation: location-animate 25s linear infinite;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113 0 1200 45V0z" fill="%230a0a0b"/></svg>');
+            transform: rotate(180deg);
+        }
+
+        .location-wave2 {
+            animation: location-animate2 20s linear infinite;
+            opacity: 0.6;
+            animation-delay: -3s;
+            bottom: 5px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113 0 1200 45V0z" fill="%230a0a0b"/></svg>');
+            transform: rotate(180deg);
+        }
+
+        .location-wave3 {
+            animation: location-animate 15s linear infinite;
+            opacity: 0.4;
+            animation-delay: -1s;
+            bottom: 10px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113 0 1200 45V0z" fill="%230a0a0b"/></svg>');
+            transform: rotate(180deg);
+        }
+
+        .location-wave4 {
+            animation: location-animate2 10s linear infinite;
+            opacity: 0.2;
+            animation-delay: -4s;
+            bottom: 15px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113 0 1200 45V0z" fill="%230a0a0b"/></svg>');
+            transform: rotate(180deg);
+        }
+
+        @keyframes location-animate {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: 1000px;
+            }
+        }
+
+        @keyframes location-animate2 {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: -1000px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0b;
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(245, 241, 232, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(245, 241, 232, 0.1);
+            border-radius: 50%;
+            color: var(--cream);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--black);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(245, 241, 232, 0.1);
+            color: rgba(245, 241, 232, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, -15px); }
+            100% { transform: translate(0, 0px); }
+        }
+
+        /* Fade In Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .craft-grid, .story-content, .location-content, .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .location-info {
+                padding-bottom: 80px;
+            }
+            
+            .location-waves {
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--black);
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .section-title, .menu-section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Animation for loading */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* 🛒 Floating Cart System */
+        .cart-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: rgba(196, 164, 132, 0.5); /* var(--gold) + 50% opacity */
+            color: var(--cream);
+            font-size: 1.8rem;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 2100;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background-color: var(--red);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* 🧺 Sidebar Cart */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 350px;
+            height: 100vh;
+            background-color: var(--black);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            transition: right 0.4s ease;
+            padding: 2rem;
+            overflow-y: auto;
+            color: var(--cream);
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(245, 241, 232, 0.2);
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--cream);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            margin-bottom: 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(245, 241, 232, 0.1);
+        }
+
+        .cart-item-image {
+            width: 70px;
+            height: 70px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            margin-right: 1rem;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-price {
+            color: var(--gold);
+        }
+
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: var(--red);
+            cursor: pointer;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .checkout-button {
+            width: 100%;
+            text-align: center;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">DAGANG RAMEN</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#location">Find Us</a></li>
+                    <li><a href="#" class="cta-button">Order Now</a></li>
+                </ul>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Fixed Wave Animation -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <h1>DAGANG RAMEN</h1>
+            <p>The Art of the Slurp</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="cta-button">View the Menu</a>
+                <a href="#" class="cta-button secondary-button">Order for Pickup</a>
+            </div>
+        </div>
+        
+        <!-- Fixed Wave Animation -->
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </section>
+
+    <!-- The Craft Section -->
+    <section class="craft">
+        <div class="container">
+            <h2 class="section-title">The Craft</h2>
+            <div class="craft-grid">
+                <div class="craft-item fade-in floating" style="animation-delay: 0.2s">
+                    <div class="craft-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>18-Hour Broth</h3>
+                    <p>Our rich, creamy tonkotsu broth simmers for a full 18 hours to extract maximum flavor and collagen.</p>
+                </div>
+                <div class="craft-item fade-in floating" style="animation-delay: 0.4s">
+                    <div class="craft-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>House-Made Noodles</h3>
+                    <p>We craft our noodles daily using traditional techniques for the perfect texture and bite.</p>
+                </div>
+                <div class="craft-item fade-in floating" style="animation-delay: 0.6s">
+                    <div class="craft-icon">
+                        <i class="fas fa-egg"></i>
+                    </div>
+                    <h3>Artisanal Toppings</h3>
+                    <p>From perfectly marinated ajitama eggs to tender chashu pork, every topping is prepared with care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="menu-section-title">Our Bowls</h2>
+            <div class="menu-filter">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Signature</button>
+                <button class="filter-btn">Spicy</button>
+                <button class="filter-btn">Vegan</button>
+                <button class="filter-btn">Sides</button>
+            </div>
+            <div class="menu-grid">
+                <!-- Menu Item 1 -->
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Black Garlic Tonkotsu</h3>
+                            <span class="menu-item-price">$14</span>
+                        </div>
+                        <p class="menu-item-desc">Our signature rich pork broth infused with black garlic oil, topped with chashu pork, bamboo shoots, and a marinated egg.</p>
+                        <div class="menu-item-tags">
+                            <span class="tag">Signature</span>
+                        </div>
+                        <button class="cta-button menu-item-button add-to-cart" data-name="Black Garlic Tonkotsu" data-price="16">Customize & Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 2 -->
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1623341215095-6a4e276aab16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Spicy Miso Chashu</h3>
+                            <span class="menu-item-price">$17</span>
+                        </div>
+                        <p class="menu-item-desc">Savory miso broth with a spicy kick, loaded with ground pork, corn, bean sprouts, and extra thick noodles.</p>
+                        <div class="menu-item-tags">
+                            <span class="tag spicy">Spicy</span>
+                        </div>
+                        <button class="cta-button menu-item-button add-to-cart" data-name="Spicy Miso Chashu" data-price="17">Customize & Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 3 -->
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image" style="background-image: url('https://images.unsplash.com/photo-1591814466704-d2c7fd7832b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3 class="menu-item-title">Shoyu Delight</h3>
+                            <span class="menu-item-price">$15</span>
+                        </div>
+                        <p class="menu-item-desc">A lighter chicken and fish broth with classic shoyu tare, featuring chicken chashu, menma, and nori.</p>
+                        <div class="menu-item-tags">
+                            <span class="tag">Classic</span>
+                        </div>
+                        <button class="cta-button menu-item-button add-to-cart" data-name="Shoyu Delight" data-price="15">Customize & Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="story-content">
+                <div class="story-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Chef preparing ramen">
+                </div>
+                <div class="story-text fade-in">
+                    <h2>From Obsession to Perfection</h2>
+                    <p>Founded in 2018 by Chef Kenji Tanaka, DAGANG RAMEN began as a humble food truck with one mission: to serve the most authentic, soul-satisfying bowls of ramen outside of Japan.</p>
+                    <p>After years of training in Tokyo's legendary ramen shops, Chef Tanaka brought his expertise and passion to create a unique culinary experience that honors tradition while embracing innovation.</p>
+                    <div class="quote">
+                        "Ramen is more than food—it's comfort, craftsmanship, and community in a bowl."
+                    </div>
+                    <p>Today, we continue to push boundaries while staying true to the fundamentals that make a perfect bowl of ramen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2 class="menu-section-title">Find Us</h2>
+            <div class="location-content">
+                <div class="map fade-in">
+                    <div class="map-overlay">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.8318120615044!2d139.7710386762068!3d35.6983534725847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c0b3d74a9f1%3A0x82e5cb9d77b89f0!2sAkihabara%2C%20Taito%20City%2C%20Tokyo%20110-0006%2C%20Japan!5e0!3m2!1sen!2sid!4v1697989900000!5m2!1sen!2sid"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+
+                        <div class="map-content">
+                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                            <h3>123 jalan ninja</h3>
+                            <p>Ramen District, Akihabara — Tokyo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-info fade-in">
+                    <h2>Visit Our Shop</h2>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p>123 Noodle Street<br>Ramen District, Tokyo 100-0001</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <p>Monday - Saturday: 11:00 AM - 10:00 PM<br>Sunday: 12:00 PM - 8:00 PM</p>
+                            <p class="status-open">We are currently OPEN</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <p>+81 3-1234-5678</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div>
+                            <p>Walk-ins welcome<br>No reservations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="location-wave location-wave1"></div>
+        <div class="location-wave location-wave2"></div>
+        <div class="location-wave location-wave3"></div>
+        <div class="location-wave location-wave4"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DAGANG RAMEN</h3>
+                    <p>The Art of the Slurp. Crafting exceptional ramen experiences since 2018.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#location">Find Us</a></li>
+                        <li><a href="#">Order Online</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Noodle Street, Tokyo</li>
+                        <li><i class="fas fa-phone"></i> +81 3-1234-5678</li>
+                        <li><i class="fas fa-envelope"></i> info@slayramen.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on new menu items and special events.</p>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Your email" style="width: 100%; padding: 0.8rem; margin: 1rem 0; background: rgba(245,241,232,0.1); border: 1px solid rgba(245,241,232,0.3); border-radius: 4px; color: white;">
+                        <button type="submit" class="cta-button" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> DAGANG RAMEN. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <button class="close-cart" id="closeCart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0</span>
+        </div>
+        <a href="#" class="cta-button checkout-button">Proceed to Checkout</a>
+    </div>
+
+    <!-- Overlay for cart -->
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in elements on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        };
+
+        // Set initial state
+        fadeElements.forEach(element => {
+            element.style.opacity = "0";
+            element.style.transform = "translateY(20px)";
+            element.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+        });
+
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Check on load as well
+        window.addEventListener('load', fadeInOnScroll);
+
+        // Menu filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get the filter value
+                const filterValue = this.textContent.toLowerCase();
+                
+                // Filter menu items
+                const menuItems = document.querySelectorAll('.menu-item');
+                menuItems.forEach(item => {
+                    if (filterValue === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        const tags = item.querySelectorAll('.tag');
+                        let hasTag = false;
+                        tags.forEach(tag => {
+                            if (tag.textContent.toLowerCase() === filterValue) {
+                                hasTag = true;
+                            }
+                        });
+                        item.style.display = hasTag ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cart functionality
+        const cartIcon = document.getElementById('cartIcon');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const closeCart = document.getElementById('closeCart');
+        const overlay = document.getElementById('overlay');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        let cart = [];
+        
+        // Open cart
+        cartIcon.addEventListener('click', function() {
+            cartSidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+        
+        // Close cart
+        closeCart.addEventListener('click', function() {
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        // Close cart when clicking overlay
+        overlay.addEventListener('click', function() {
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        // Add to cart
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const price = parseFloat(this.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.name === name);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        name: name,
+                        price: price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCart();
+                
+                // Show confirmation
+                this.textContent = 'Added to Cart!';
+                setTimeout(() => {
+                    this.textContent = 'Customize & Add to Cart';
+                }, 2000);
+            });
+        });
+        
+        // Update cart display
+        function updateCart() {
+            // Clear cart items
+            cartItems.innerHTML = '';
+            
+            // Update cart count
+            const cartCount = document.querySelector('.cart-count');
+            let totalCount = 0;
+            let totalPrice = 0;
+            
+            cart.forEach(item => {
+                totalCount += item.quantity;
+                totalPrice += item.price * item.quantity;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <div class="cart-item-image" style="background-image: url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80')"></div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">$${item.price} x ${item.quantity}</div>
+                    </div>
+                    <button class="cart-item-remove" data-name="${item.name}"><i class="fas fa-trash"></i></button>
+                `;
+                
+                cartItems.appendChild(cartItem);
+            });
+            
+            // Update cart count and total
+            cartCount.textContent = totalCount;
+            cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+            
+            // Add event listeners to remove buttons
+            const removeButtons = document.querySelectorAll('.cart-item-remove');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const name = this.getAttribute('data-name');
+                    cart = cart.filter(item => item.name !== name);
+                    updateCart();
+                });
+            });
+        }
+        
+        // Newsletter form submission
+        const newsletterForm = document.getElementById('newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive updates on our latest offerings.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
